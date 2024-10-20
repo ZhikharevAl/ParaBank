@@ -24,6 +24,7 @@ ignore = [
     "ISC001", # single-line-implicit-string-concatenation
     "N812", # Lowercase `expected_conditions` imported as non-lowercase
     "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "PGH003" # use specific rule codes when ignoring type issues
 ]
 fixable = ["ALL"]
 unfixable = []
