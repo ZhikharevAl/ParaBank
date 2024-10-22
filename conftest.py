@@ -9,7 +9,7 @@ from playwright.sync_api._generated import Browser, BrowserContext
 def browser() -> Generator[Browser, None, None]:
     """A fixture for starting and closing the browser."""
     with sync_playwright() as p:
-        browser: Browser = p.chromium.launch(headless=False)
+        browser: Browser = p.chromium.launch(headless=True)
         yield browser
         browser.close()
 
