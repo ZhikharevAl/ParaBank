@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Oct 22 20:37:06 GMT 2024","Tue Oct 22 20:37:07 GMT 2024","1273","tests","test_parabank","","","","test_home_page_loading","The test checks that the main page is loaded."
