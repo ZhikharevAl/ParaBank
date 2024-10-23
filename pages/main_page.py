@@ -6,6 +6,7 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
     """The main page."""
+
     # locators
     CUSTOMER_LOGIN_HEADER = "h2"
     HEADER_PANEL = "#headerPanel"
@@ -26,8 +27,8 @@ class MainPage(BasePage):
         """Verifies that the header panel is loaded."""
         self.should_have_text(self.HEADER_PANEL, self.HEADER_PANEL_TEXT)
 
-    @allure.step("The checks that the main page is loaded.")
-    def is_page_loaded(self) -> bool | object:
+    @allure.step("The checks page content is loaded correctly")
+    def is_page_loaded(self) -> bool:
         """The main page is loaded."""
         is_login_visible: bool = self.is_customer_login_in_page()
         try:
