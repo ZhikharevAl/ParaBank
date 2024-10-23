@@ -11,7 +11,7 @@ class BasePage:
         """The base class for all pages."""
         self.page: Page = page
         self.base_url = BASE_URL
-        self.url = url
+        self.url: str = url
 
     def navigate(self, path: str = "") -> None:
         """Navigates to the given path."""
@@ -24,12 +24,13 @@ class BasePage:
         Returns:
             bool: True if the current URL matches the expected URL
         """
-        try:
-            expect(self.page).to_have_url(url)
-        except AssertionError:
-            return False
-        else:
-            return True
+        with allure.step(f"Check if current URL contains {url}"):  # type: ignore
+            try:
+                expect(self.page).to_have_url(url)
+            except AssertionError:
+                return False
+            else:
+                return True
 
     def find_element(self, selector: str) -> Locator:
         """Finds an element by selector."""
