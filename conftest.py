@@ -24,7 +24,7 @@ def page(browser: Browser, request: SubRequest) -> Generator[Page, None, None]:
     page: Page = context.new_page()
     yield page
 
-    if request.node.rep_call.failed: # type: ignore
+    if request.node.rep_call.failed:  # type: ignore
         allure.attach(
             body=page.screenshot(),
             name="screenshot",
