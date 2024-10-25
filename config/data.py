@@ -13,7 +13,7 @@ class Data:
 
     if not USERNAME or not PASSWORD:
         msg: str = (
-            "Environment variables PARABANK_USERNAME and PARABANK_PASSWORD are required. "
+            "Environment variables USERNAME and PASSWORD are required."
             "Set them either in .env file or as environment variables"
         )
         raise ValueError(msg)
