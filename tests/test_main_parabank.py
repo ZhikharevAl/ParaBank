@@ -1,8 +1,7 @@
 import allure
-from playwright.sync_api import Page
 
-from config.config import BASE_URL
-from pages.main_page import MainPage
+from config.config import BASE_URL, MAIN_URL
+from tests.base.base_test import BaseTest
 
 
 @allure.epic("Main Application")
@@ -26,14 +25,15 @@ from pages.main_page import MainPage
     <li>All page components should be properly rendered and accessible</li>
 </ul>
 """)
-class TestHomePage:
+class TestHomePage(BaseTest):
     """The test class for the home page."""
 
     @allure.story("Home Page Loading")
     @allure.severity(severity_level="CRITICAL")
-    def test_home_page_loading(self, page: Page) -> None:
+    def test_home_page_loading(self) -> None:
         """The test checks that the main page is loaded."""
-        self.login_page = MainPage(page)
-        self.login_page.navigate()
-        assert self.login_page.expect_url(BASE_URL), "URL does not match expected value"
-        assert self.login_page.is_page_loaded(), "Page content is not loaded correctly"  # type: ignore
+        self.main_page.navigate()
+        assert self.main_page.expect_url(
+            f"{BASE_URL}{MAIN_URL}"
+        ), "URL does not match expected value"
+        assert self.main_page.is_page_loaded(), "Page content is not loaded correctly"  # type: ignore
