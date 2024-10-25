@@ -10,10 +10,3 @@ class Data:
 
     USERNAME: str | None = os.getenv("PARABANK_USERNAME")
     PASSWORD: str | None = os.getenv("PARABANK_PASSWORD")
-
-    if not USERNAME or not PASSWORD:
-        msg: str = (
-            "Environment variables USERNAME and PASSWORD are required."
-            "Set them either in .env file or as environment variables"
-        )
-        raise ValueError(msg)
