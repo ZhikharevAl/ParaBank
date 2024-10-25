@@ -1,3 +1,5 @@
+import re
+
 import allure
 from playwright.sync_api import Locator, Page, expect
 
@@ -26,7 +28,7 @@ class BasePage:
         """
         with allure.step(f"Check if current URL contains {url}"):  # type: ignore
             try:
-                expect(self.page).to_have_url(url)
+                expect(self.page).to_have_url(re.compile(f"^{re.escape(url)}(?:;|$)"))
             except AssertionError:
                 return False
             else:
@@ -39,3 +41,31 @@ class BasePage:
     def should_have_text(self, selector: str, text: str) -> None:
         """Checks that the element contains the text."""
         expect(self.find_element(selector)).to_have_text(text)
+
+    def contains_text(self, selector: str, text: str) -> bool:
+        """Checks that the element contains the text."""
+        try:
+            expect(self.page.locator(selector)).to_contain_text(text)
+        except AssertionError:
+            return False
+        else:
+            return True
+
+    def fill_text(self, selector: str, text: str) -> None:
+        """Fill text in element.
+
+        Args:
+            selector (str): Element selector
+            text (str): Text to fill
+        """
+        self.find_element(selector).fill(text)
+
+    @allure.step("Click element by role {role} with name {name}")
+    def click_by_role(self, role: str, name: str) -> None:
+        """Click element by role and name.
+
+        Args:
+            role (str): Element role (button, link, etc.)
+            name (str): Element name or text
+        """
+        self.page.get_by_role(role, name=name).click()  # type: ignore
