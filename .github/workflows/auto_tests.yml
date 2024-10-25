@@ -3,6 +3,10 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 
+env:
+  PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+  PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
+
 jobs:
   test:
     timeout-minutes: 60
@@ -23,9 +27,6 @@ jobs:
       run: python -m playwright install --with-deps
 
     - name: Run your tests
-      env:
-        PARABANK_USERNAME: ${{ secrets.USERNAME }}
-        PARABANK_PASSWORD: ${{ secrets.PASSWORD }}
       run: pytest --alluredir=allure-results
     
     - uses: actions/upload-artifact@master
