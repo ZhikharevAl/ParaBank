@@ -33,7 +33,7 @@ jobs:
       env:
         PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
         PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
-      run: uv run pytest --alluredir=allure-results
+      run: pytest --alluredir=allure-results
     
     - uses: actions/upload-artifact@master
       with:
