@@ -16,7 +16,7 @@ class MainPage(BasePage):
         "Admin Page home about contact"
     )
     USERNAME_INPUT = 'input[name="username"]'
-    PASSWORD_INPUT = 'input[name="password"]'  # nosec # noqa: S105
+    PASSWORD_INPUT = 'input[name="password"]'  # nosec
 
     def __init__(self, page: Page) -> None:
         """The main page."""
@@ -57,3 +57,7 @@ class MainPage(BasePage):
         """Login with provided credentials."""
         self.fill_login_form(username, password)  # type: ignore
         self.click_login_button()  # type: ignore
+
+    def is_register_button_visible(self) -> bool:
+        """Checks that the register button is visible."""
+        return self.get_by_role_to_be_visible("link", "Register")
