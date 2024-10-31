@@ -69,3 +69,12 @@ class BasePage:
             name (str): Element name or text
         """
         self.page.get_by_role(role, name=name).click()  # type: ignore
+
+    def get_by_role_to_be_visible(self, role: str, name: str) -> bool:
+        """Checks that the element is visible."""
+        try:
+            expect(self.page.get_by_role(role, name=name)).to_be_visible()  # type: ignore
+        except AssertionError:
+            return False
+        else:
+            return True
