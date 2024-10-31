@@ -15,10 +15,10 @@ class BasePage:
         self.base_url = BASE_URL
         self.url: str = url
 
-    def navigate(self, path: str = "") -> None:
+    def navigate(self) -> None:
         """Navigates to the given path."""
-        with allure.step(f"Navigate to {self.base_url}{path}"):  # type: ignore
-            self.page.goto(f"{self.base_url}{path}")
+        with allure.step(f"Navigate to {self.base_url}{self.url}"):  # type: ignore
+            self.page.goto(f"{self.base_url}{self.url}")
 
     def expect_url(self, url: str) -> bool:
         """Checks that the current URL contains the given url.
