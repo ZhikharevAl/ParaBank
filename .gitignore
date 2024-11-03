@@ -13,3 +13,4 @@ allure-report/
 pytest.log
 
 /.venv
+/.vscode
