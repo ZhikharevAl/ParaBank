@@ -78,3 +78,13 @@ class BasePage:
             return False
         else:
             return True
+
+    @allure.step("Select option {value} in dropdown {selector}")
+    def select_option(self, selector: str, value: str) -> None:
+        """Select option from dropdown by value.
+
+        Args:
+            selector (str): Dropdown selector
+            value (str): Option value to select
+        """
+        self.find_element(selector).select_option(value)
