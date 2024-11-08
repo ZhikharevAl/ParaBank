@@ -22,3 +22,7 @@ class OverviewPage(BasePage):
         return self.contains_text(
             self.ACCOUNT_OVERVIEW_HEADER, self.ACCOUNT_OVERVIEW_HEADER_TEXT
         )
+
+    def click_open_new_account(self) -> None:
+        """Click on Open new account button."""
+        self.click_by_role("link", "Open New Account")  # type: ignore
