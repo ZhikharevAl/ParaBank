@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from config.config import BASE_URL, OPEN_NEW_ACCOUNT_URL
@@ -7,6 +8,29 @@ from pages.overview_page import OverviewPage
 from tests.base.base_test import BaseTest
 
 
+@allure.epic("Banking Application")
+@allure.feature("Account Management")
+@allure.description_html("""
+<h2>Testing New Account Creation Functionality</h2>
+<p>Test verifies the process of opening new accounts with different types:</p>
+<ul>
+    <li>Savings Account creation</li>
+    <li>Checking Account creation</li>
+</ul>
+<p>The test performs the following operations:</p>
+<ul>
+    <li>Navigation to the Open New Account page</li>
+    <li>Selection of account type (Savings/Checking)</li>
+    <li>Selection of existing account for linking</li>
+    <li>Account creation confirmation</li>
+</ul>
+<p>Expected Results:</p>
+<ul>
+    <li>Successfully navigate to the account creation page</li>
+    <li>Create new account of specified type</li>
+    <li>Receive confirmation of account creation</li>
+</ul>
+""")
 class TestOpenNewAccount(BaseTest):
     """The test class for the open new account page."""
 
