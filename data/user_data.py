@@ -40,3 +40,7 @@ class UserData:
             username=fake.user_name(),
             password=fake.password(length=12),
         )
+
+    def generate_new_username(self) -> None:
+        """Generate new username."""
+        self.username = fake.user_name()

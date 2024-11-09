@@ -25,7 +25,8 @@ ignore = [
     "N812", # Lowercase `expected_conditions` imported as non-lowercase
     "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
     "PGH003", # use specific rule codes when ignoring type issues
-    "S105" # hard-coded password
+    "S105", # hard-coded password
+    
 ]
 fixable = ["ALL"]
 unfixable = []

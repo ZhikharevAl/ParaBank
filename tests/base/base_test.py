@@ -3,6 +3,7 @@ from playwright.sync_api import Page
 
 from config.data import Data
 from pages.main_page import MainPage
+from pages.open_new_account_page import OpenNewAccountPage
 from pages.overview_page import OverviewPage
 from pages.register_page import RegisterPage
 
@@ -15,6 +16,7 @@ class BaseTest:
     main_page: MainPage
     overview_page: OverviewPage
     register_page: RegisterPage
+    open_new_account_page: OpenNewAccountPage
     page: Page
 
     @pytest.fixture(autouse=True)
@@ -25,3 +27,4 @@ class BaseTest:
         cls.main_page = MainPage(page)
         cls.overview_page = OverviewPage(page)
         cls.register_page = RegisterPage(page)
+        cls.open_new_account_page = OpenNewAccountPage(page)
