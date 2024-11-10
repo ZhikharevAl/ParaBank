@@ -91,6 +91,7 @@ class RegisterPage(BasePage):
 
         return False
 
+    @property
     def is_registration_successful(self) -> bool:
         """Check if registration was successful."""
         return self.contains_text("h1", "Welcome")

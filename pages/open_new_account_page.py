@@ -26,7 +26,7 @@ class OpenNewAccountPage(BasePage):  # noqa: D101
             self.ACCOUNT_EXISTING_SELECT
         ).element_handles()
         if available_accounts:
-            with allure.step("Select first available existing account {value}"): # type: ignore
+            with allure.step("Select first available existing account {value}"):  # type: ignore
                 self.select_option(
                     self.ACCOUNT_EXISTING_SELECT,
                     available_accounts[0].get_attribute("value"),  # type: ignore
@@ -39,6 +39,7 @@ class OpenNewAccountPage(BasePage):  # noqa: D101
         """Click on Open new account button."""
         self.click_by_role("button", "Open New Account")  # type: ignore
 
+    @property
     def is_account_created(self) -> bool:
         """Check if account has been created."""
         return self.contains_text("#openAccountResult", "Account Opened!")

@@ -63,5 +63,5 @@ class TestOpenNewAccount(BaseTest):
         self.open_new_account_page.click_button_open_new_account()
 
         assert (
-            self.open_new_account_page.is_account_created()
+            self.open_new_account_page.is_account_created
         ), f"Failed to create {account_type.name.lower()} account"
