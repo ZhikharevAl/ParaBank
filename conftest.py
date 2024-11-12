@@ -18,7 +18,7 @@ from pages.overview_page import OverviewPage
 def browser() -> Generator[Browser, None, None]:
     """Browser fixture."""
     with sync_playwright() as p:
-        browser: Browser = p.chromium.launch(headless=False)
+        browser: Browser = p.chromium.launch(headless=True)
         yield browser
         browser.close()
 
