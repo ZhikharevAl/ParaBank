@@ -46,4 +46,4 @@ class TestLogin(BaseTest):
             f"{BASE_URL}{OVERVIEW_URL}"
         ), "Failed to redirect to overview page after login"
 
-        assert self.overview_page.is_logged_in(), "User is not in logged-in state"  # type: ignore
+        assert self.overview_page.is_logged_in, "User is not in logged-in state"  # type: ignore

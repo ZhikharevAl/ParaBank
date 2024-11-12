@@ -22,6 +22,7 @@ class MainPage(BasePage):
         """The main page."""
         super().__init__(page, url=MAIN_URL)
 
+    @property
     def is_customer_login_in_page(self) -> bool:
         """Checks that the customer login header is visible."""
         return self.find_element(self.CUSTOMER_LOGIN_HEADER).is_visible()
@@ -30,17 +31,18 @@ class MainPage(BasePage):
         """Verifies that the header panel is loaded."""
         self.should_have_text(self.HEADER_PANEL, self.HEADER_PANEL_TEXT)
 
-    @allure.step("The checks page content is loaded correctly")
+    @property
     def is_page_loaded(self) -> bool:
         """The main page is loaded."""
-        is_login_visible: bool = self.is_customer_login_in_page()
-        try:
-            self.verify_header_panel_loaded()
-            is_header_text_correct = True
-        except AssertionError:
-            is_header_text_correct = False
+        with allure.step("The checks page content is loaded correctly"):  # type: ignore
+            is_login_visible: bool = self.is_customer_login_in_page
+            try:
+                self.verify_header_panel_loaded()
+                is_header_text_correct = True
+            except AssertionError:
+                is_header_text_correct = False
 
-        return is_login_visible and is_header_text_correct
+            return is_login_visible and is_header_text_correct
 
     def fill_login_form(self, username: str, password: str) -> None:
         """Fill login form with credentials."""
@@ -58,6 +60,7 @@ class MainPage(BasePage):
         self.fill_login_form(username, password)  # type: ignore
         self.click_login_button()  # type: ignore
 
+    @property
     def is_register_button_visible(self) -> bool:
         """Checks that the register button is visible."""
         return self.get_by_role_to_be_visible("link", "Register")

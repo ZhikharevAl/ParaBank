@@ -25,4 +25,4 @@ class TestUIElements(BaseTest):
     def test_register_button(self) -> None:
         """The test checks that the register button is visible."""
         self.main_page.navigate()
-        assert self.main_page.is_register_button_visible()
+        assert self.main_page.is_register_button_visible

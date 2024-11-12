@@ -34,5 +34,5 @@ class TestRegistration(BaseTest):
         registration_success = self.register_page.register_new_user(user_data)  # type: ignore
         assert registration_success, "Registration was not successful"
         assert (
-            self.register_page.is_registration_successful()
+            self.register_page.is_registration_successful
         ), "Registration was not successful"

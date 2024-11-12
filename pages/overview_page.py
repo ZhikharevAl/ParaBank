@@ -16,12 +16,13 @@ class OverviewPage(BasePage):
         """The overview page."""
         super().__init__(page, url=OVERVIEW_URL)
 
-    @allure.step("Check if user is logged in")
+    @property
     def is_logged_in(self) -> bool:
         """Check if user is logged in by verifying Account Overview header."""
-        return self.contains_text(
-            self.ACCOUNT_OVERVIEW_HEADER, self.ACCOUNT_OVERVIEW_HEADER_TEXT
-        )
+        with allure.step("Check if user is logged in"):  # type: ignore
+            return self.contains_text(
+                self.ACCOUNT_OVERVIEW_HEADER, self.ACCOUNT_OVERVIEW_HEADER_TEXT
+            )
 
     def click_open_new_account(self) -> None:
         """Click on Open new account button."""

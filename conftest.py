@@ -84,12 +84,12 @@ def login(page: Page) -> tuple[MainPage, OverviewPage]:
     overview_page = OverviewPage(page)
 
     main_page.navigate()
-    assert main_page.is_page_loaded(), "Main page is not loaded properly"  # type: ignore
+    assert main_page.is_page_loaded, "Main page is not loaded properly"  # type: ignore
 
     username = Data().USERNAME
     password = Data().PASSWORD
 
     main_page.login(username, password)  # type: ignore
-    assert overview_page.is_logged_in(), "Login failed"  # type: ignore
+    assert overview_page.is_logged_in, "Login failed"  # type: ignore
 
     return main_page, overview_page

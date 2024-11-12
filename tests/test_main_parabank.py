@@ -36,4 +36,4 @@ class TestHomePage(BaseTest):
         assert self.main_page.expect_url(
             f"{BASE_URL}{MAIN_URL}"
         ), "URL does not match expected value"
-        assert self.main_page.is_page_loaded(), "Page content is not loaded correctly"  # type: ignore
+        assert self.main_page.is_page_loaded, "Page content is not loaded correctly"  # type: ignore
