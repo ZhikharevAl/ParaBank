@@ -10,6 +10,7 @@ from playwright.sync_api import Page, sync_playwright
 from playwright.sync_api._generated import Browser, BrowserContext
 
 from config.data import Data
+from data.amount_data import AmountData
 from pages.main_page import MainPage
 from pages.overview_page import OverviewPage
 
@@ -93,3 +94,9 @@ def login(page: Page) -> tuple[MainPage, OverviewPage]:
     assert overview_page.is_logged_in, "Login failed"  # type: ignore
 
     return main_page, overview_page
+
+
+@pytest.fixture
+def amount_data() -> AmountData:
+    """Generate amount data."""
+    return AmountData()
