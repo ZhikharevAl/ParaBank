@@ -6,6 +6,7 @@ from pages.main_page import MainPage
 from pages.open_new_account_page import OpenNewAccountPage
 from pages.overview_page import OverviewPage
 from pages.register_page import RegisterPage
+from pages.transfer_page import TransferPage
 
 
 class BaseTest:
@@ -17,6 +18,7 @@ class BaseTest:
     overview_page: OverviewPage
     register_page: RegisterPage
     open_new_account_page: OpenNewAccountPage
+    transfer_page: TransferPage
     page: Page
 
     @pytest.fixture(autouse=True)
@@ -28,3 +30,4 @@ class BaseTest:
         cls.overview_page = OverviewPage(page)
         cls.register_page = RegisterPage(page)
         cls.open_new_account_page = OpenNewAccountPage(page)
+        cls.transfer_page = TransferPage(page)
