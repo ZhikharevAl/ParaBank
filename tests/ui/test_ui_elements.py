@@ -11,10 +11,12 @@ from tests.base.base_test import BaseTest
 <ul>
     <li>Navigation to main page</li>
     <li>Checking registration button presence</li>
+    <li>Checking transfer funds button presence</li>
 </ul>
 <p>Expected Results:</p>
 <ul>
     <li>Registration button should be visible</li>
+    <li>Transfer funds button should be visible</li>
 </ul>
 """)
 class TestUIElements(BaseTest):
@@ -26,3 +28,10 @@ class TestUIElements(BaseTest):
         """The test checks that the register button is visible."""
         self.main_page.navigate()
         assert self.main_page.is_register_button_visible
+
+    @allure.story("Transfer Funds Button Visibility")
+    @allure.severity(severity_level="MINOR")
+    def test_transfer_funds(self) -> None:
+        """The test checks that the register button is visible."""
+        self.main_page.navigate()
+        assert self.main_page.is_transfer_button_visible

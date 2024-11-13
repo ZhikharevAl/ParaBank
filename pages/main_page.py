@@ -64,3 +64,8 @@ class MainPage(BasePage):
     def is_register_button_visible(self) -> bool:
         """Checks that the register button is visible."""
         return self.get_by_role_to_be_visible("link", "Register")
+
+    @property
+    def is_transfer_button_visible(self) -> bool:
+        """Checks that the transfer funds button is visible."""
+        return self.get_by_role_to_be_visible("link", "Transfer Funds")

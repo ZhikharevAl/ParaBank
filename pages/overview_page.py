@@ -11,6 +11,7 @@ class OverviewPage(BasePage):
     # locators
     ACCOUNT_OVERVIEW_HEADER = "#showOverview"
     ACCOUNT_OVERVIEW_HEADER_TEXT = "Accounts Overview"
+    TRANSFER_FUNDS_BUTTON = "Transfer Funds"
 
     def __init__(self, page: Page) -> None:
         """The overview page."""
@@ -27,3 +28,7 @@ class OverviewPage(BasePage):
     def click_open_new_account(self) -> None:
         """Click on Open new account button."""
         self.click_by_role("link", "Open New Account")  # type: ignore
+
+    def click_transfer_funds(self) -> None:
+        """Click transfer funds button."""
+        self.click_by_role("link", self.TRANSFER_FUNDS_BUTTON)  # type: ignore
