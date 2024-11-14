@@ -11,6 +11,7 @@ from playwright.sync_api._generated import Browser, BrowserContext
 
 from config.data import Data
 from data.amount_data import AmountData
+from data.user_data import UserData
 from pages.main_page import MainPage
 from pages.overview_page import OverviewPage
 
@@ -87,13 +88,19 @@ def login(page: Page) -> tuple[MainPage, OverviewPage]:
     main_page.navigate()
     assert main_page.is_page_loaded, "Main page is not loaded properly"  # type: ignore
 
-    username = Data().USERNAME
-    password = Data().PASSWORD
+    username: str | None = Data().USERNAME
+    password: str | None = Data().PASSWORD
 
     main_page.login(username, password)  # type: ignore
     assert overview_page.is_logged_in, "Login failed"  # type: ignore
 
     return main_page, overview_page
+
+
+@pytest.fixture
+def random_user_data() -> UserData:
+    """Fixture to generate random user data."""
+    return UserData.generate_random_user()
 
 
 @pytest.fixture
