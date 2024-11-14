@@ -26,12 +26,10 @@ class TestRegistration(BaseTest):
 
     @allure.story("Successful Registration")
     @allure.severity(severity_level="CRITICAL")
-    def test_successful_registration(self) -> None:
+    def test_successful_registration(self, random_user_data: UserData) -> None:
         """Test successful user registration with valid data."""
         self.register_page.navigate()
-
-        user_data: UserData = UserData.generate_random_user()
-        registration_success = self.register_page.register_new_user(user_data)  # type: ignore
+        registration_success = self.register_page.register_new_user(random_user_data)  # type: ignore
         assert registration_success, "Registration was not successful"
         assert (
             self.register_page.is_registration_successful
