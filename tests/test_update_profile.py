@@ -46,4 +46,3 @@ class TestUpdateProfile(BaseTest):
         self.update_profile_page.update_profile(random_user_data)  # type: ignore
         self.update_profile_page.click_update_button()
         assert self.update_profile_page.is_updated, "Profile is not updated"
-
