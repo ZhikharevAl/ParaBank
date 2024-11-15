@@ -1,5 +1,7 @@
 import allure
 
+from pages.main_page import MainPage
+from pages.overview_page import OverviewPage
 from tests.base.base_test import BaseTest
 
 
@@ -12,11 +14,13 @@ from tests.base.base_test import BaseTest
     <li>Navigation to main page</li>
     <li>Checking registration button presence</li>
     <li>Checking transfer funds button presence</li>
+    <li>Checking update contact info button presence</li>
 </ul>
 <p>Expected Results:</p>
 <ul>
     <li>Registration button should be visible</li>
     <li>Transfer funds button should be visible</li>
+    <li>Update contact info button should be visible</li>
 </ul>
 """)
 class TestUIElements(BaseTest):
@@ -31,7 +35,14 @@ class TestUIElements(BaseTest):
 
     @allure.story("Transfer Funds Button Visibility")
     @allure.severity(severity_level="MINOR")
-    def test_transfer_funds(self) -> None:
+    def test_transfer_funds(self, login: tuple[MainPage, OverviewPage]) -> None:  # noqa: ARG002
         """The test checks that the register button is visible."""
-        self.main_page.navigate()
-        assert self.main_page.is_transfer_button_visible
+        self.overview_page.navigate()
+        assert self.overview_page.is_transfer_button_visible
+
+    @allure.story("Update Contact Info Button Visibility")
+    @allure.severity(severity_level="MINOR")
+    def test_update_contact_info(self, login: tuple[MainPage, OverviewPage]) -> None:  # noqa: ARG002
+        """The test checks that the update contact info button is visible."""
+        self.overview_page.navigate()
+        assert self.overview_page.is_update_contact_info

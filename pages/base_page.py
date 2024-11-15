@@ -2,6 +2,7 @@ import re
 
 import allure
 from playwright.sync_api import Locator, Page, expect
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
 from config.config import BASE_URL
 
@@ -51,6 +52,10 @@ class BasePage:
         else:
             return True
 
+    def clear_text(self, selector: str) -> None:
+        """Clear text in element."""
+        self.find_element(selector).clear()
+
     def fill_text(self, selector: str, text: str) -> None:
         """Fill text in element.
 
@@ -58,7 +63,10 @@ class BasePage:
             selector (str): Element selector
             text (str): Text to fill
         """
-        self.find_element(selector).fill(text)
+        element: Locator = self.find_element(selector)
+        self.page.on("dialog", lambda dialog: dialog.accept())
+        element.clear()
+        element.fill(text)
 
     @allure.step("Click element by role {role} with name {name}")
     def click_by_role(self, role: str, name: str) -> None:
@@ -73,11 +81,10 @@ class BasePage:
     def get_by_role_to_be_visible(self, role: str, name: str) -> bool:
         """Checks that the element is visible."""
         try:
-            expect(self.page.get_by_role(role, name=name))  # type: ignore
-        except AssertionError:
+            element: Locator = self.page.get_by_role(role, name=name)  # type: ignore
+            return element.is_visible()
+        except PlaywrightTimeoutError:
             return False
-        else:
-            return True
 
     @allure.step("Select option {value} in dropdown {selector}")
     def select_option(self, selector: str, value: str) -> None:

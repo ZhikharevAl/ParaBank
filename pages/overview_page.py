@@ -25,6 +25,16 @@ class OverviewPage(BasePage):
                 self.ACCOUNT_OVERVIEW_HEADER, self.ACCOUNT_OVERVIEW_HEADER_TEXT
             )
 
+    @property
+    def is_transfer_button_visible(self) -> bool:
+        """Checks that the transfer funds button is visible."""
+        return self.get_by_role_to_be_visible("link", "Transfer Funds")
+
+    @property
+    def is_update_contact_info(self) -> bool:
+        """Checks that the update contact info button is visible."""
+        return self.get_by_role_to_be_visible("link", "Update Contact Info")
+
     def click_open_new_account(self) -> None:
         """Click on Open new account button."""
         self.click_by_role("link", "Open New Account")  # type: ignore
@@ -32,3 +42,7 @@ class OverviewPage(BasePage):
     def click_transfer_funds(self) -> None:
         """Click transfer funds button."""
         self.click_by_role("link", self.TRANSFER_FUNDS_BUTTON)  # type: ignore
+
+    def click_update_profile(self) -> None:
+        """Click update profile button."""
+        self.click_by_role("link", "Update Contact Info")  # type: ignore
