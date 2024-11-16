@@ -41,7 +41,7 @@ def page(browser: Browser, request: SubRequest) -> Generator[Page, None, None]:
     yield page
 
     if request.node.rep_call.failed:  # type: ignore
-        context.tracing.stop(path=f"traces/trace-{request.node.name}.zip")
+        context.tracing.stop(path=f"test-results/trace-{request.node.name}.zip")
         allure.attach(
             body=page.screenshot(),
             name="screenshot",
@@ -53,8 +53,8 @@ def page(browser: Browser, request: SubRequest) -> Generator[Page, None, None]:
 
 @pytest.fixture(autouse=True, scope="session")
 def clear_traces() -> None:
-    """Clear traces directory before test run."""
-    traces_dir = Path("traces")
+    """Clear test-results directory before test run."""
+    traces_dir = Path("test-results")
     if traces_dir.exists():
         shutil.rmtree(traces_dir)
     traces_dir.mkdir(exist_ok=True)

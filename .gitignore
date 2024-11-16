@@ -14,4 +14,4 @@ pytest.log
 
 /.venv
 /.vscode
-/traces
+/test-results
