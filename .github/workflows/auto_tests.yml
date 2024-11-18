@@ -45,7 +45,7 @@ jobs:
         path: test-results/
         retention-days: 20
     
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v4
       with:
         name: allure-results
         path: allure-results
