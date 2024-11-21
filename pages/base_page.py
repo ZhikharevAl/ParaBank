@@ -60,14 +60,14 @@ class BasePage:
         self.find_element(selector).clear()
 
     def fill_text(self, selector: str, text: str | None = None) -> None:
-        """Fill text in element.
+        """
+        Fill text in element.
 
         Args:
             selector (str): Element selector
-            text (str): Text to fill
+            text (str | None, optional): Text. Defaults to None.
         """
-        if text is None:
-            text = ""
+        text = text or ""
         element: Locator = self.find_element(selector)
         self.page.on("dialog", lambda dialog: dialog.accept())
         element.clear()
