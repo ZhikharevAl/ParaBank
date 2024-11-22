@@ -83,6 +83,7 @@ class BasePage:
         """
         self.page.get_by_role(role, name=name).click()
 
+    @allure.step("Get element by role {role} with name {name}")
     def get_by_role_to_be_visible(
         self, role: RoleType, name: str | None = None
     ) -> bool:
