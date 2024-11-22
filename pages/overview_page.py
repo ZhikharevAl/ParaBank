@@ -33,7 +33,7 @@ class OverviewPage(BasePage):
         return self.get_by_role_to_be_visible("link", self.TRANSFER_FUNDS_BUTTON)
 
     @property
-    def is_update_contact_info(self) -> bool:
+    def is_update_contact_info_visible(self) -> bool:
         """Checks that the update contact info button is visible."""
         return self.get_by_role_to_be_visible("link", self.UPDATE_CONTACT_INFO_BUTTON)
 
