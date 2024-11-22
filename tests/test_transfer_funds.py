@@ -43,6 +43,6 @@ class TestTransferFunds(BaseTest):
         assert self.transfer_page.expect_url(
             f"{BASE_URL}{TRANSFER_FUNDS_URL}"
         ), "URL does not match expected value"
-        self.transfer_page.fill_amount(amount_data)  # type: ignore
-        self.transfer_page.click_transfer()  # type: ignore
+        self.transfer_page.fill_amount(amount_data)
+        self.transfer_page.click_transfer()
         assert self.transfer_page.is_transfer_complete, "Transfer is not complete"

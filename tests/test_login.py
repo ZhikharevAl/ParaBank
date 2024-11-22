@@ -40,10 +40,10 @@ class TestLogin(BaseTest):
             f"{BASE_URL}{MAIN_URL}"
         ), "URL does not match expected value"
 
-        self.main_page.login(self.data.USERNAME, self.data.PASSWORD)  # type: ignore
+        self.main_page.login(self.data.USERNAME, self.data.PASSWORD)
 
         assert self.main_page.expect_url(
             f"{BASE_URL}{OVERVIEW_URL}"
         ), "Failed to redirect to overview page after login"
 
-        assert self.overview_page.is_logged_in, "User is not in logged-in state"  # type: ignore
+        assert self.overview_page.is_logged_in, "User is not in logged-in state"
