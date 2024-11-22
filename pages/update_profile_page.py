@@ -38,7 +38,7 @@ class UpdateProfilePage(BasePage):
 
     def click_update_button(self) -> None:
         """Click update button."""
-        self.click_by_role("button", self.UPDATE_BUTTON)  # type: ignore
+        self.click_by_role("button", self.UPDATE_BUTTON)
 
     @property
     def is_updated(self) -> bool:

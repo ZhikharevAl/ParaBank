@@ -26,7 +26,7 @@ class TransferPage(BasePage):
     @allure.step("Click the transfer button")
     def click_transfer(self) -> None:
         """Click the transfer button."""
-        self.click_by_role("button", self.TRANSFER_BUTTON)  # type: ignore
+        self.click_by_role("button", self.TRANSFER_BUTTON)
 
     @property
     def is_transfer_complete(self) -> bool:

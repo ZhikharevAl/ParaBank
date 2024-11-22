@@ -1,10 +1,13 @@
 import re
+from typing import Literal
 
 import allure
 from playwright.sync_api import Locator, Page, expect
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
 from config.config import BASE_URL
+
+RoleType = Literal["button", "link"]
 
 
 class BasePage:
@@ -18,7 +21,7 @@ class BasePage:
 
     def navigate(self) -> None:
         """Navigates to the given path."""
-        with allure.step(f"Navigate to {self.base_url}{self.url}"):  # type: ignore
+        with allure.step(f"Navigate to {self.base_url}{self.url}"):
             self.page.goto(f"{self.base_url}{self.url}")
 
     def expect_url(self, url: str) -> bool:
@@ -56,38 +59,45 @@ class BasePage:
         """Clear text in element."""
         self.find_element(selector).clear()
 
-    def fill_text(self, selector: str, text: str) -> None:
-        """Fill text in element.
+    def fill_text(self, selector: str, text: str | None = None) -> None:
+        """
+        Fill text in element.
 
         Args:
             selector (str): Element selector
-            text (str): Text to fill
+            text (str | None, optional): Text. Defaults to None.
         """
+        text = text or ""
         element: Locator = self.find_element(selector)
         self.page.on("dialog", lambda dialog: dialog.accept())
         element.clear()
         element.fill(text)
 
     @allure.step("Click element by role {role} with name {name}")
-    def click_by_role(self, role: str, name: str) -> None:
+    def click_by_role(self, role: RoleType, name: str | None = None) -> None:
         """Click element by role and name.
 
         Args:
-            role (str): Element role (button, link, etc.)
-            name (str): Element name or text
+            role (str or None): Element role (button, link, etc.)
+            name (str or None): Element name or text
         """
-        self.page.get_by_role(role, name=name).click()  # type: ignore
+        self.page.get_by_role(role, name=name).click()
 
-    def get_by_role_to_be_visible(self, role: str, name: str) -> bool:
+    @allure.step("Get element by role {role} with name {name}")
+    def get_by_role_to_be_visible(
+        self, role: RoleType, name: str | None = None
+    ) -> bool:
         """Checks that the element is visible."""
         try:
-            element: Locator = self.page.get_by_role(role, name=name)  # type: ignore
-            return element.is_visible()
+            element: Locator = self.page.get_by_role(role, name=name)
         except PlaywrightTimeoutError:
             return False
+        else:
+            visible: bool = element.is_visible()
+            return visible
 
     @allure.step("Select option {value} in dropdown {selector}")
-    def select_option(self, selector: str, value: str) -> None:
+    def select_option(self, selector: str, value: str | None) -> None:
         """Select option from dropdown by value.
 
         Args:

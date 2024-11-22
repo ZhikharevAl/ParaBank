@@ -26,7 +26,6 @@ ignore = [
     "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
     "PGH003", # use specific rule codes when ignoring type issues
     "S105", # hard-coded password
-    
 ]
 fixable = ["ALL"]
 unfixable = []

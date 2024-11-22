@@ -59,7 +59,7 @@ class TestOpenNewAccount(BaseTest):
         )
 
         self.open_new_account_page.select_account_type(account_type)
-        self.open_new_account_page.choose_an_existing_account()  # type: ignore
+        self.open_new_account_page.choose_an_existing_account()
         self.open_new_account_page.click_button_open_new_account()
 
         assert (

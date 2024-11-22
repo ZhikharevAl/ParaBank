@@ -11,20 +11,21 @@ class RegisterPage(BasePage):
     """Register page."""
 
     # Locators
-    FIRST_NAME_INPUT = '[id="customer.firstName"]'
-    LAST_NAME_INPUT = '[id="customer.lastName"]'
-    STREET_INPUT = '[id="customer.address.street"]'
-    CITY_INPUT = '[id="customer.address.city"]'
-    STATE_INPUT = '[id="customer.address.state"]'
-    ZIP_CODE_INPUT = '[id="customer.address.zipCode"]'
-    PHONE_INPUT = '[id="customer.phoneNumber"]'
-    SSN_INPUT = '[id="customer.ssn"]'
-    USERNAME_INPUT = '[id="customer.username"]'
-    PASSWORD_INPUT = '[id="customer.password"]'
+    FIRST_NAME_INPUT = "#customer\\.firstName"
+    LAST_NAME_INPUT = "#customer\\.lastName"
+    STREET_INPUT = "#customer\\.address\\.street"
+    CITY_INPUT = "#customer\\.address\\.city"
+    STATE_INPUT = "#customer\\.address\\.state"
+    ZIP_CODE_INPUT = "#customer\\.address\\.zipCode"
+    PHONE_INPUT = "#customer\\.phoneNumber"
+    SSN_INPUT = "#customer\\.ssn"
+    USERNAME_INPUT = "#customer\\.username"
+    PASSWORD_INPUT = "#customer\\.password"
     CONFIRM_PASSWORD_INPUT = "#repeatedPassword"
     REGISTER_BUTTON = "Register"
     USERNAME_EXISTS_ERROR = "cell"
     USERNAME_EXISTS_MESSAGE = "This username already exists."
+    REGISTRATION_SUCCESSFUL = "Welcome"
 
     def __init__(self, page: Page) -> None:
         """The register page."""
@@ -41,7 +42,7 @@ class RegisterPage(BasePage):
         self.fill_text(self.ZIP_CODE_INPUT, user_data.zip_code)
         self.fill_text(self.PHONE_INPUT, user_data.phone)
         self.fill_text(self.SSN_INPUT, user_data.ssn)
-        self.fill_credentials(user_data)  # type: ignore
+        self.fill_credentials(user_data)
 
     @allure.step("Fill user credentials")
     def fill_credentials(self, user_data: UserData) -> None:
@@ -53,7 +54,7 @@ class RegisterPage(BasePage):
     @allure.step("Click register button")
     def click_register_button(self) -> None:
         """Click register button."""
-        self.click_by_role("button", self.REGISTER_BUTTON)  # type: ignore
+        self.click_by_role("button", self.REGISTER_BUTTON)
 
     def check_username_exists(self) -> bool:
         """Check if username already exists error is displayed."""
@@ -77,14 +78,14 @@ class RegisterPage(BasePage):
         Returns:
             bool: True if registration was successful, False otherwise
         """
-        self.fill_registration_form(user_data)  # type: ignore
+        self.fill_registration_form(user_data)
 
         for _ in range(max_attempts):
-            self.click_register_button()  # type: ignore
+            self.click_register_button()
 
             if self.check_username_exists():
                 user_data.generate_new_username()
-                self.fill_credentials(user_data)  # type: ignore
+                self.fill_credentials(user_data)
                 continue
 
             return True
@@ -94,4 +95,4 @@ class RegisterPage(BasePage):
     @property
     def is_registration_successful(self) -> bool:
         """Check if registration was successful."""
-        return self.contains_text("h1", "Welcome")
+        return self.contains_text("h1", self.REGISTRATION_SUCCESSFUL)

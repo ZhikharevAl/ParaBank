@@ -29,7 +29,7 @@ class TestRegistration(BaseTest):
     def test_successful_registration(self, random_user_data: UserData) -> None:
         """Test successful user registration with valid data."""
         self.register_page.navigate()
-        registration_success = self.register_page.register_new_user(random_user_data)  # type: ignore
+        registration_success = self.register_page.register_new_user(random_user_data)
         assert registration_success, "Registration was not successful"
         assert (
             self.register_page.is_registration_successful

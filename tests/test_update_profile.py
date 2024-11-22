@@ -43,6 +43,6 @@ class TestUpdateProfile(BaseTest):
         assert self.update_profile_page.expect_url(
             f"{BASE_URL}{UPDATE_PROFILE_URL}"
         ), "URL does not match expected value"
-        self.update_profile_page.update_profile(random_user_data)  # type: ignore
+        self.update_profile_page.update_profile(random_user_data)
         self.update_profile_page.click_update_button()
         assert self.update_profile_page.is_updated, "Profile is not updated"
