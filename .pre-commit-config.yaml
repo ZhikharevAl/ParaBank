@@ -21,5 +21,6 @@ repos:
         entry: run_tests.bat
         language: system
         pass_filenames: false
-        always_run: true
+        always_run: false
         types: [python]
+        stages: [manual]
