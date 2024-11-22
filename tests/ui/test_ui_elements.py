@@ -27,22 +27,28 @@ class TestUIElements(BaseTest):
     """The test class for the UI elements."""
 
     @allure.story("Register Button Visibility")
-    @allure.severity(severity_level="MINOR")
+    @allure.severity(severity_level="CRITICAL")
     def test_register_button(self) -> None:
         """The test checks that the register button is visible."""
         self.main_page.navigate()
-        assert self.main_page.is_register_button_visible
+        assert (
+            self.main_page.is_register_button_visible
+        ), "Register button is not visible"
 
     @allure.story("Transfer Funds Button Visibility")
-    @allure.severity(severity_level="MINOR")
+    @allure.severity(severity_level="CRITICAL")
     def test_transfer_funds(self, login: tuple[MainPage, OverviewPage]) -> None:  # noqa: ARG002
         """The test checks that the register button is visible."""
         self.overview_page.navigate()
-        assert self.overview_page.is_transfer_button_visible
+        assert (
+            self.overview_page.is_transfer_button_visible
+        ), "Transfer button is not visible"
 
     @allure.story("Update Contact Info Button Visibility")
-    @allure.severity(severity_level="MINOR")
+    @allure.severity(severity_level="CRITICAL")
     def test_update_contact_info(self, login: tuple[MainPage, OverviewPage]) -> None:  # noqa: ARG002
         """The test checks that the update contact info button is visible."""
         self.overview_page.navigate()
-        assert self.overview_page.is_update_contact_info
+        assert (
+            self.overview_page.is_update_contact_info_visible
+        ), "Update contact info button is not visible"
