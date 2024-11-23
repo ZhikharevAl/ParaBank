@@ -4,6 +4,11 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 
+permissions:
+  actions: write
+  packages: write
+  contents: read
+
 jobs:
   test:
     timeout-minutes: 60
