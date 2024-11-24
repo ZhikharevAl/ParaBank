@@ -1,0 +1,22 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Sun Nov 24 09:38:09 GMT 2024","Sun Nov 24 09:38:09 GMT 2024","0","tests","test_transfer_funds","TestTransferFunds","","","test_transfer_funds","Test transfer funds."
+"passed","Sun Nov 24 09:38:13 GMT 2024","Sun Nov 24 09:38:14 GMT 2024","698","tests","test_main_parabank","TestHomePage","","","test_home_page_loading","The test checks that the main page is loaded."
+"failed","Sun Nov 24 09:39:13 GMT 2024","Sun Nov 24 09:39:13 GMT 2024","0","tests.ui","test_ui_elements","TestUIElements","","","test_transfer_funds","The test checks that the register button is visible."
+"passed","Sun Nov 24 09:38:13 GMT 2024","Sun Nov 24 09:38:14 GMT 2024","681","tests.ui","test_ui_elements","TestUIElements","","","test_register_button","The test checks that the register button is visible."
+"failed","Sun Nov 24 09:38:06 GMT 2024","Sun Nov 24 09:38:06 GMT 2024","0","tests","test_update_profile","TestUpdateProfile","","","test_update_profile","Test update profile."
+"failed","Sun Nov 24 09:38:07 GMT 2024","Sun Nov 24 09:38:13 GMT 2024","6047","tests","test_login","TestLogin","","","test_login","Test validates the complete login workflow and successful authentication."
+"failed","Sun Nov 24 09:39:10 GMT 2024","Sun Nov 24 09:39:10 GMT 2024","0","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[checking_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"passed","Sun Nov 24 09:37:07 GMT 2024","Sun Nov 24 09:37:12 GMT 2024","4958","tests","test_register","TestRegistration","","","test_successful_registration","Test successful user registration with valid data."
+"failed","Sun Nov 24 09:38:06 GMT 2024","Sun Nov 24 09:38:06 GMT 2024","0","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[savings_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
