@@ -1,0 +1,23 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Nov 24 08:29:37 GMT 2024","Sun Nov 24 08:29:41 GMT 2024","4273","tests","test_register","TestRegistration","","","test_successful_registration","Test successful user registration with valid data."
+"passed","Sun Nov 24 08:29:26 GMT 2024","Sun Nov 24 08:29:28 GMT 2024","1992","tests","test_login","TestLogin","","","test_login","Test validates the complete login workflow and successful authentication."
+"failed","Sun Nov 24 08:31:32 GMT 2024","Sun Nov 24 08:31:32 GMT 2024","0","tests.ui","test_ui_elements","TestUIElements","","","test_update_contact_info","The test checks that the update contact info button is visible."
+"passed","Sun Nov 24 08:29:28 GMT 2024","Sun Nov 24 08:29:29 GMT 2024","644","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[savings_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"passed","Sun Nov 24 08:29:30 GMT 2024","Sun Nov 24 08:29:31 GMT 2024","867","tests.ui","test_ui_elements","TestUIElements","","","test_register_button","The test checks that the register button is visible."
+"failed","Sun Nov 24 08:30:28 GMT 2024","Sun Nov 24 08:30:28 GMT 2024","0","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[checking_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"passed","Sun Nov 24 08:29:28 GMT 2024","Sun Nov 24 08:29:29 GMT 2024","1077","tests","test_update_profile","TestUpdateProfile","","","test_update_profile","Test update profile."
+"passed","Sun Nov 24 08:29:29 GMT 2024","Sun Nov 24 08:29:30 GMT 2024","999","tests","test_main_parabank","TestHomePage","","","test_home_page_loading","The test checks that the main page is loaded."
+"failed","Sun Nov 24 08:30:39 GMT 2024","Sun Nov 24 08:30:39 GMT 2024","0","tests","test_transfer_funds","TestTransferFunds","","","test_transfer_funds","Test transfer funds."
+"failed","Sun Nov 24 08:30:29 GMT 2024","Sun Nov 24 08:30:29 GMT 2024","0","tests.ui","test_ui_elements","TestUIElements","","","test_transfer_funds","The test checks that the register button is visible."
