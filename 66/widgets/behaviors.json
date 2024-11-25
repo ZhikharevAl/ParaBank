@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"ebb39d842b833b1267905af5ca6af649","name":"Main Application","statistic":{"failed":0,"broken":0,"skipped":0,"passed":4,"unknown":0,"total":4}},{"uid":"6ea36a7e519c4714033016b905f3bbb3","name":"Banking Application","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}

@@ -1,0 +1,23 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Nov 25 12:04:39 GMT 2024","Mon Nov 25 12:04:40 GMT 2024","649","tests.ui","test_ui_elements","TestUIElements","","","test_update_contact_info","The test checks that the update contact info button is visible."
+"passed","Mon Nov 25 12:04:33 GMT 2024","Mon Nov 25 12:04:34 GMT 2024","974","tests","test_update_profile","TestUpdateProfile","","","test_update_profile","Test update profile."
+"passed","Mon Nov 25 12:04:30 GMT 2024","Mon Nov 25 12:04:33 GMT 2024","2598","tests","test_login","TestLogin","","","test_login","Test validates the complete login workflow and successful authentication."
+"passed","Mon Nov 25 12:04:33 GMT 2024","Mon Nov 25 12:04:34 GMT 2024","666","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[savings_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"passed","Mon Nov 25 12:04:34 GMT 2024","Mon Nov 25 12:04:34 GMT 2024","847","tests","test_main_parabank","TestHomePage","","","test_home_page_loading","The test checks that the main page is loaded."
+"passed","Mon Nov 25 12:04:38 GMT 2024","Mon Nov 25 12:04:39 GMT 2024","630","tests","test_transfer_funds","TestTransferFunds","","","test_transfer_funds","Test transfer funds."
+"passed","Mon Nov 25 12:04:36 GMT 2024","Mon Nov 25 12:04:37 GMT 2024","559","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[checking_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"passed","Mon Nov 25 12:04:30 GMT 2024","Mon Nov 25 12:04:35 GMT 2024","4945","tests","test_register","TestRegistration","","","test_successful_registration","Test successful user registration with valid data."
+"passed","Mon Nov 25 12:04:37 GMT 2024","Mon Nov 25 12:04:37 GMT 2024","729","tests.ui","test_ui_elements","TestUIElements","","","test_transfer_funds","The test checks that the register button is visible."
+"passed","Mon Nov 25 12:04:35 GMT 2024","Mon Nov 25 12:04:35 GMT 2024","826","tests.ui","test_ui_elements","TestUIElements","","","test_register_button","The test checks that the register button is visible."
