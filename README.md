@@ -123,6 +123,8 @@ pytest --alluredir=./allure-results
 allure serve ./allure-results
 ```
 
+![Allure Report](/attachment/Screenshot%202024-11-23%20011852.png)
+
 ## Структура отчетов
 
 Проект использует Allure для генерации отчетов. Каждый тест включает:
