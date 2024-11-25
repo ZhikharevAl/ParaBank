@@ -1,7 +1,0 @@
-BASE_URL = "https://parabank.parasoft.com/parabank/"
-MAIN_URL = "index.htm"
-OVERVIEW_URL = "overview.htm"
-REGISTER_URL = "register.htm"
-OPEN_NEW_ACCOUNT_URL = "openaccount.htm"
-TRANSFER_FUNDS_URL = "transfer.htm"
-UPDATE_PROFILE_URL = "updateprofile.htm"
