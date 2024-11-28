@@ -1,0 +1,22 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Thu Nov 28 01:27:01 GMT 2024","Thu Nov 28 01:27:01 GMT 2024","0","tests","test_transfer_funds","TestTransferFunds","","","test_transfer_funds","Test transfer funds."
+"failed","Thu Nov 28 01:26:48 GMT 2024","Thu Nov 28 01:26:48 GMT 2024","0","tests","test_update_profile","TestUpdateProfile","","","test_update_profile","Test update profile."
+"passed","Thu Nov 28 01:25:58 GMT 2024","Thu Nov 28 01:26:02 GMT 2024","4488","tests","test_register","TestRegistration","","","test_successful_registration","Test successful user registration with valid data."
+"passed","Thu Nov 28 01:26:55 GMT 2024","Thu Nov 28 01:26:56 GMT 2024","710","tests.ui","test_ui_elements","TestUIElements","","","test_register_button","The test checks that the register button is visible."
+"failed","Thu Nov 28 01:26:47 GMT 2024","Thu Nov 28 01:26:47 GMT 2024","0","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[savings_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"failed","Thu Nov 28 01:27:52 GMT 2024","Thu Nov 28 01:27:52 GMT 2024","0","tests","test_open_new_account","TestOpenNewAccount","","","test_open_new_account[checking_account]","
+        Test opening new account of different types.
+
+        Args:
+            login: Login fixture
+            account_type: Type of account to open (SAVINGS or CHECKING)
+        "
+"failed","Thu Nov 28 01:28:05 GMT 2024","Thu Nov 28 01:28:05 GMT 2024","0","tests.ui","test_ui_elements","TestUIElements","","","test_transfer_funds","The test checks that the register button is visible."
+"passed","Thu Nov 28 01:26:56 GMT 2024","Thu Nov 28 01:26:57 GMT 2024","752","tests","test_main_parabank","TestHomePage","","","test_home_page_loading","The test checks that the main page is loaded."
+"failed","Thu Nov 28 01:26:49 GMT 2024","Thu Nov 28 01:26:56 GMT 2024","6209","tests","test_login","TestLogin","","","test_login","Test validates the complete login workflow and successful authentication."
